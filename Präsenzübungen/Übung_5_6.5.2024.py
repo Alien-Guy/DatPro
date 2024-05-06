@@ -24,13 +24,22 @@ Anzahl_Wörter = dict()
 zen_processed = zen_of_python.lower().replace(".","").replace(",","").replace("!","").replace("*","").replace("-","")
 list = zen_processed.split()
 
-while len(list) != 0:
-    count = 0
-    for i in range(len(list)):
-        if list[i] == list[0]: 
-            count += 1
-    Anzahl_Wörter[list[0]] = count
-    list.remove(list[0])
+#while len(list) != 0:
+    #count = 0
+    #wort = list[0]
+    #for i in range(len(list)):
+#        if list[i] == wort: 
+#            count += 1
+#    Anzahl_Wörter[wort] = count
+#    #print(count)
+#    list.remove(wort)
+
+for i in range (len(list)):
+    wort = list[i]
+    if wort in Anzahl_Wörter:
+        Anzahl_Wörter[wort] += 1
+    else: Anzahl_Wörter[wort] = 1
+
 
 for string,x in Anzahl_Wörter.items():
     print(f"{string}: {x}")
