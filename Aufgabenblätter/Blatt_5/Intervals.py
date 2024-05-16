@@ -17,7 +17,8 @@ class Intervals:
         for i in range(len(self.list_of_intervals)):
             if self.list_of_intervals[i][0] <= number and self.list_of_intervals[i][0] > number:
                 return True
-        else: return False
+            break
+        return False
     
     def add (self, eingabe):
         """Das Intervall darf nur aus 2 Zahlen bestehen, es muss als Tupel mit Klammern übergeben werden und von links nach rechts aufsteigend geordnet sein."""
