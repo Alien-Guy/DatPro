@@ -10,15 +10,16 @@ class Intervals:
         self.list_of_intervals = []
     
     def __str__(self):
+        self.content = ""
         for i in range(len(self.list_of_intervals)):
-            return f"[{self.list_of_intervals[i][0]}, {self.list_of_intervals[i][1]}["
+            self.content += f"[{self.list_of_intervals[i][0]}, {self.list_of_intervals[i][1]}["
+        return self.content
     
     def __contains__(self, number):
         for i in range(len(self.list_of_intervals)):
-            if self.list_of_intervals[i][0] <= number and self.list_of_intervals[i][0] > number:
+            if self.list_of_intervals[i][0] <= number and self.list_of_intervals[i][1] > number:
                 return True
-            break
-        return False
+        else: return False
     
     def add (self, eingabe):
         """Das Intervall darf nur aus 2 Zahlen bestehen, es muss als Tupel mit Klammern übergeben werden und von links nach rechts aufsteigend geordnet sein."""
