@@ -24,6 +24,7 @@ class Intervals:
         """Das Intervall darf nur aus 2 Zahlen bestehen, es muss als Tupel mit Klammern übergeben werden und von links nach rechts aufsteigend geordnet sein."""
         if type(eingabe) == tuple and len(eingabe) == 2 and eingabe[0] < eingabe[1]:
             self.list_of_intervals.append(eingabe)
+        else: return "Deine Eingabe erfüllt nicht die Bedingungen, um als Intervall angenommen zu werden."
     
     def clear(self):
         self.list_of_intervals = []
