@@ -5,6 +5,7 @@
 #Intervalle müssen von rechts nach links und als Objekte der Klasse Interval angegeben werden.
 #Die Klasse muss dafür importiert werden.
 #Erben von der Klasse Interval wäre nicht hilfreich, da beide Klassen unterschiedliche Datentypen verwenden.
+#Nach Druchlauf des Test-Programms wurden keine Fehler mehr gefunden.
 
 from Interval import Interval
 

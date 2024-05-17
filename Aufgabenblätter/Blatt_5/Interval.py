@@ -23,16 +23,3 @@ class Interval:
     def clear(self):
         self.lowerbound = None
         self.upperbound = None
-
-interval = Interval(3, 5)
-
-interval.set_lowerbound(2)
-interval.set_upperbound(7)
-
-interval.clear()
-
-print(f"Interval = {interval}")
-#print(repr(interval))
-
-#for position in range(10):
-#    print(f"{position} in interval: {position in interval}")
