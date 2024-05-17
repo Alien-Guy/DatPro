@@ -2,8 +2,11 @@
 #Autor: Jonas Niermann; Matr.-Nr.: 7418131
 
 #Erstellt eine Klasse Intervals, die mehrere, rechtsoffene Intervalle aufnehmen kann.
-#Intervalle müssen von rechts nach links angegeben werden.
+#Intervalle müssen von rechts nach links und als Objekte der Klasse Interval angegeben werden.
+#Die Klasse muss dafür importiert werden.
 #Erben von der Klasse Interval wäre nicht hilfreich, da beide Klassen unterschiedliche Datentypen verwenden.
+
+from Interval import Interval
 
 class Intervals:
     def __init__(self):
@@ -22,9 +25,9 @@ class Intervals:
         else: return False
     
     def add (self, eingabe):
-        """Das Intervall darf nur aus 2 Zahlen bestehen, es muss als Tupel mit Klammern übergeben werden und von links nach rechts aufsteigend geordnet sein."""
-        if type(eingabe) == tuple and len(eingabe) == 2 and eingabe[0] < eingabe[1]:
-            self.list_of_intervals.append(eingabe)
+        """Das Intervall muss als Objekt der Klasse `Interval` übergeben werden und von links nach rechts aufsteigend geordnet sein."""
+        if type(eingabe) == Interval and eingabe.lowerbound < eingabe.upperbound:
+            self.list_of_intervals.append((eingabe.lowerbound, eingabe.upperbound))
         else: return "Deine Eingabe erfüllt nicht die Bedingungen, um als Intervall angenommen zu werden."
     
     def clear(self):
@@ -32,8 +35,11 @@ class Intervals:
 
     def __iter__(self):
         self.counter = 0
-        return self.counter
+        return self
     
     def __next__(self):
-        if self.counter < len(self.list_of_intervals): self.counter += 1
-        return self.counter
+        if self.counter < len(self.list_of_intervals):
+            current_interval = self.list_of_intervals[self.counter]
+            self.counter += 1
+            return current_interval
+        else: raise StopIteration
