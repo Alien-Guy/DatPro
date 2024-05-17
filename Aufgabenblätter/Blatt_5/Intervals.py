@@ -32,6 +32,8 @@ class Intervals:
 
     def __iter__(self):
         self.counter = 0
+        return self.counter
     
     def __next__(self):
         if self.counter < len(self.list_of_intervals): self.counter += 1
+        return self.counter
