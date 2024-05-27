@@ -19,31 +19,22 @@ class BlankIntervals:
     def commit_interval(self):
         self.intervals.append(self.interval)
         self.interval = Interval(None, None)
-        pass
 
     def transition_to_state(self, new_state, position):
-        if new_state == 0:
+        if self.state == 1:
             self.interval.set_lowerbound(position)
-            self.state = new_state
         else:
             self.interval.set_upperbound(position)
-            commit_interval()
-        pass
+            self.commit_interval()
+        self.state = new_state
 
     def input(self, coord):
         if self.state == 1:
             if coord[1] == 0.0:
-                transition_to_state(0, coord[0])
-            else: pass
+                self.transition_to_state(0, coord[0])
         else:
-            if coord[1] == 0.0:
-                pass
-            else: transistion_to_state(1, coord[0])
-        pass
+            if coord[1] != 0.0:
+                self.transition_to_state(1, coord[0])
 
     def get_intervals(self):
-        self.inhalt = "[ "
-        for i in range(len(self.list_of_intervals)):
-            self.inhalt += f"[{self.list_of_intervals[i][0]}, {self.list_of_intervals[i][1]}[, "
-        self.inhalt += "]"
-        return self.inhalt
+       return self.intervals       

@@ -7,7 +7,7 @@ class Interval:
         return f"Interval ({str(self.lowerbound)},{str(self.upperbound)})"
     
     def __str__(self):
-        return f"[{self.lowerbound},{self.upperbound}["
+        return f"[{self.lowerbound}, {self.upperbound}["
     
     def __contains__(self, number):
         if self.lowerbound <= number and self.upperbound > number:
