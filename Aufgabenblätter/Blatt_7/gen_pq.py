@@ -14,6 +14,8 @@ with open ("pq.txt", "w") as file:
         q = randint(1, 1000)
         file.write(str(q) + "\n")
 
+#Ab hier nur noch Überprüfung des oberen Programms.
+        
 #print(file)
 #print(p)
 #print(q)
