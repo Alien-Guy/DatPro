@@ -1,3 +1,9 @@
+#Aufgabenblatt 7
+#Autor: Jonas Niermann; Matr.-Nr.: 7418131
+
+#Das Programm öffnet die in gen_pq.py erstellte Datei "pq.txt", ließt die Zahlenpaare aus
+#und speichert die Paare zusammen mit ihrem ggT im neuen Dokument "pqggt.txt" ab.
+
 from ggt import ggt
 
 pq_list = open("pq.txt", "r")
