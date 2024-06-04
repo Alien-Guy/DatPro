@@ -20,6 +20,8 @@ for line in pq_list:
 ggt_list.close()
 pq_list.close()
 
+#Ab hier nur noch Überprüfung des oberen Programms.
+
 #print(ggt_list)
 #print(p)
 #print(q)
