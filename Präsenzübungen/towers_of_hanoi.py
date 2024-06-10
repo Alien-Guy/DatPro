@@ -57,9 +57,18 @@ class TowersOfHanoi:
         self.check()
 
     def hanoi(self, n, source, helper, target):
-# implement me recursively
+        if n == 0:
+            self.show()
+        else:
+            self.hanoi(n-1, source, target, helper)
+            self.move(source, target)
+            self.hanoi(n-1, helper, source, target)
         pass
 
-p = TowersOfHanoi(7)
-p.show()
-p.hanoi(p.N, "A", "B", "C")
+#p = TowersOfHanoi(7)
+#p.show()
+#p.__str__
+#p.hanoi(p.N, "A", "B", "C")
+
+t = TowersOfHanoi(7)
+t.hanoi(7, "A", "B", "C")
