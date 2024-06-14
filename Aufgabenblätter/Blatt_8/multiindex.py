@@ -5,6 +5,8 @@
 #vorkommt ausgibt.
 
 def multiindex(list, element):
+    if type(list) != list:
+        raise TypeError     #Um sicherzustellen, dass der Generator nur Listen annimmt.
     for p in range(len(list)):
         if list[p] == element:
             yield p
