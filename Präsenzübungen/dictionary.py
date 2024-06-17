@@ -23,23 +23,40 @@ class Dictionary:
         return s
 
     def __len__(self):
-# Standard-Methode, bitte in den Präsenzübungen implementieren
-        pass
+        node = self.head
+        length = 0
+        while node.next != None:
+            node = node.next
+            length += 1
+        return length
 
     def __contains__(self, key):
-# Standard-Methode, bitte in den Präsenzübungen implementieren
-        pass
+        node = self.head
+        while node.next != None:
+            node = node.next
+            if key == node.key:
+                return True
+        return False
 
 # Hängt (key, value) an die ssl an. Überschreibt den Wert value falls es
 # den Schlüssel key bereits gibt
     def store(self, key, value):
-# Bitte in den Präsenzübungen implementieren
-        pass
+        node = self.head
+        while node.next != None:
+            node = node.next
+            if key == node.key:
+                node.value = value
+                return 0
+        node.next = Node(key, value)
 
 # Sucht key in der ssl und gibt den value zurück, löst ansonsten KeyError aus
     def retrieve(self, key):
-# Bitte in den Präsenzübungen implementieren
-        pass
+        node = self.head
+        while node.next != None:
+            node = node.next
+            if key == node.key:
+                return node.value
+        raise KeyError
 
 # Fügt (key, value) hinter key_loc ein
     def insert(self, key_loc, key, value):
@@ -76,11 +93,11 @@ try:
     print(f'{d.retrieve("Lea") = }')
 except KeyError:
     print('d.retrieve("Lea") löst KeyError aus')
-try:
-    print('d.delete("Lea")')
-    d.delete("Lea")
-except KeyError:
-    print('d.delete("Lea") löst KeyError aus')
+#try:
+#    print('d.delete("Lea")')
+#    d.delete("Lea")
+#except KeyError:
+#    print('d.delete("Lea") löst KeyError aus')
 
 for item in items:
     print(f"Speichere {item} in d.")
@@ -92,14 +109,15 @@ for item in items:
         print(f'{d.retrieve("Lea") = }')
     except KeyError:
         print('d.retrieve("Lea") löst KeyError aus')
-    try:
-        print('d.delete("Lea")')
-        d.delete("Lea")
-    except KeyError:
-        print('d.delete("Lea") löst KeyError aus')
+    #try:
+    #    print('d.delete("Lea")')
+    #    d.delete("Lea")
+    #except KeyError:
+    #    print('d.delete("Lea") löst KeyError aus')
+    print("\n")
 
 # Jetzt den Iterator über die keys in d testen
-print('Iterator über d testen:')
-for key in d:
-    value = d.retrieve(key)
-    print(f"({key}, {value})")
+#print('Iterator über d testen:')
+#for key in d:
+#    value = d.retrieve(key)
+#    print(f"({key}, {value})")
