@@ -1,3 +1,19 @@
+from mpi4py import MPI
+
+def worker(comm):
+    s = MPI.Status()
+    while True:
+        n = comm.recv(source = 0, status = s)
+        länge = 0
+        if s.Get_tag() == ENDTAG:
+            return
+        länge = collatz_länge(n)
+        T = (länge, n)
+        comm.send(T, dest = 0)
+
+
+
+
 def collatz_länge(n):
     länge = 0
     while n != 1:
@@ -21,5 +37,13 @@ def main():
             print(f"neues Maximum collatz_länge({m_max}) = {l_max}")
     print(f"Maximum:collatz_länge({m_max}) = {l_max}")
 
-if __name__ == "__main__":
-    main()
+def main():
+    comm = MPI.COMM_WORLD
+    rank = comm.Get_rank()
+    if rank == 0:
+        dispatcher(comm)
+    else:
+        worker(comm)
+
+#if __name__ == "__main__":
+#    main()
